@@ -220,7 +220,7 @@ public class JsonParser {
         return JsonBoolean.FALSE;
     }
 
-    private JsonValue parseNull() {
+    private JsonNull parseNull() {
         if (strictMode) {
             if (!json.substring(currentIndex, currentIndex + 4).equals("null")) {
                 throw new JsonException("Illegal value. Expect 'null' here. (" + currentIndex + ")", currentIndex, JsonException.ILLEGAL_BOOL);
@@ -228,7 +228,7 @@ public class JsonParser {
             currentIndex += 4;
         }
         skipLetters();
-        return JsonBoolean.FALSE;
+        return JsonNull.NULL;
     }
 
     private JsonValue parseValue() {
